@@ -1,0 +1,91 @@
+---
+title: "STATHW370"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Case: a=0
+
+```{r}
+source('~/DanSav_STAT370/qscript.R')
+x <- -10:10
+y <- quad(x,b=2,c=3)
+y2 <- quad(x,b=4,c=6)
+y3 <- quad(x,b=0.5,c=3)
+plot(x,y,'l')
+lines(x,y2)
+lines(x,y3)
+# When a=0, the quadratic is linear
+```
+
+## Case: b=0
+
+``` {r}
+source('~/DanSav_STAT370/qscript.R')
+x <- -10:10
+y <- quad(x,a=1,c=3)
+y2 <- quad(x,a=2,c=4)
+y3 <- quad(x,a=2.5,c=2)
+plot(x,y,'l')
+lines(x,y2)
+lines(x,y3)
+# When b=0, the quadratic is a parabola with y-intercept of c, and vertex on the vertical axis
+```
+
+## Case: c=0
+
+``` {r}
+source('~/DanSav_STAT370/qscript.R')
+x <- -10:10
+y <- quad(x,a=0.5,b=4)
+y2 <- quad(x,a=1,b=3)
+y3 <- quad(x,a=1.5,b=5)
+plot(x,y,'l')
+lines(x,y2)
+lines(x,y3)
+```
+
+## Case: a&b=0
+
+``` {r}
+source('~/DanSav_STAT370/qscript.R')
+x <- -10:10
+y <- quad(x,c=3)
+y2 <- quad(x,c=2)
+y3 <- quad(x,c=4)
+plot(x,y,'l')
+lines(x,y2)
+lines(x,y3)
+# When a and b = 0, the quadratic is a horizontal line where y = c.
+```
+
+## Case: b&c=0
+
+``` {r}
+source('~/DanSav_STAT370/qscript.R')
+x <- -10:10
+y <- quad(x,a=1)
+y2 <- quad(x,a=2)
+y3 <- quad(x,a=3)
+plot(x,y,'l')
+lines(x,y2)
+lines(x,y3)
+# When b and c = 0, the quadratic is a parabola that gets thinner as a gets larger, with vertex at the origin.
+```
+
+##Case: a&c=0
+
+``` {r}
+source('~/DanSav_STAT370/qscript.R')
+x <- -10:10
+y <- quad(x,b=1)
+y2 <- quad(x,b=2)
+y3 <- quad(x,b=4)
+plot(x,y,'l')
+lines(x,y2)
+lines(x,y3)
+# When a and c = 0, the quadratic is linear with slope of b, and y-intercept at the origin.
+```
