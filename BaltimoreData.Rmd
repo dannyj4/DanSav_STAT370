@@ -1,0 +1,28 @@
+---
+title: "Baltimore Data"
+author: "Dan Savickas"
+output: html_document
+---
+
+```{r setup, include=FALSE, comment=NA, null_prefix=TRUE}
+require(data.table)
+library(readr)
+
+Baltimore_City_Employee_Salaries_FY2015 <- read_csv("/Users/Daniel/Downloads/Baltimore_City_Employee_Salaries_FY2015.csv")
+View(Baltimore_City_Employee_Salaries_FY2015)
+
+dannysframe <- data.frame(read.table("/Users/Daniel/Downloads/Baltimore_City_Employee_Salaries_FY2015.csv",header = TRUE, sep = ",",blank.lines.skip = TRUE, skipNul = TRUE, fill = TRUE
+                      ))
+
+AnnualSalarycol6 <- as.numeric(dannysframe[,6])
+C <- AnnualSalarycol6[!is.na(AnnualSalarycol6)]
+B <- hist(C)
+```
+
+##Public Employee Annual Salary Data (Baltimore)
+
+```{r}
+
+hist(C)
+
+```
