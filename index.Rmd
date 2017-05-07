@@ -1,0 +1,64 @@
+---
+title: "Truncated Normal HW3"
+author: Dan Savickas
+output: html_document
+---
+
+```{r setup, include=FALSE, comment=NA, null_prefix=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+
+rmytnorm <- function(n, mean=0, sd=1, lower=-Inf, upper=Inf){
+  v <- rep(NA,n)
+  
+  for(i in 1:n) {
+    print (i)
+    num <- rnorm(1)
+    print(num)
+    while (num < 0) {
+      num <- rnorm(1)
+      print(num)
+    }
+    v[i] <- num
+  }
+  print(v)
+}
+
+dmytnorm <- function(x, mean=0, sd=1, lower=-Inf, upper=Inf, log=FALSE){
+  if(x<0)
+    return(0)
+  if(x>=0)
+    num <- dnorm(x)
+  print(num)
+}
+
+x <- rnorm(10)
+y <- rnorm(10, mean = 1)
+z <- rnorm(10, mean = -1)
+
+Oodles <- rmytnorm(1000)
+```
+
+
+##Loop for Normal Dist. Where Mean=0
+```{r, comment = NA, null_prefix=TRUE}
+rmytnorm(10)
+dmytnorm(x)
+```
+
+##Loop for Normal Dist. Where Mean=-1
+```{r, comment = NA, null_prefix=TRUE}
+rmytnorm(10, mean = -1)
+dmytnorm(z)
+```
+
+##Loop for Normal Dist. Where Mean=1
+```{r, comment = NA, null_prefix=TRUE}
+rmytnorm(10, mean = 1)
+dmytnorm(y)
+```
+
+##Histogram
+```{r, comment = NA, null_prefix=TRUE}
+hist(Oodles)
+#Oodles is defined as the function rmytnorm run 1000 times
+```
